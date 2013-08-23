@@ -160,7 +160,9 @@ function! unite#start#temporary(sources, ...) "{{{
   let context.unite__old_winheight = 0
   let context.is_resize = 0
   let context.is_restart = 0
-  let context.quick_match = 0
+  if empty(old_context)
+    let context.quick_match = 0
+  endif
 
   if context.script
     " Set buffer-name automatically.
